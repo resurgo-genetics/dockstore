@@ -235,11 +235,11 @@ public class WorkflowIT {
 
         // Manually register workflow github
         Workflow githubWorkflow = workflowApi
-                .manualRegister("github", DOCKSTORE_TEST_USER2_HELLO_DOCKSTORE_WORKFLOW, "/Dockstore.wdl", "altname", "wdl");
+                .manualRegister("github", DOCKSTORE_TEST_USER2_HELLO_DOCKSTORE_WORKFLOW, "/Dockstore.wdl", "altname", "wdl","");
 
         // Manually register workflow bitbucket
         Workflow bitbucketWorkflow = workflowApi
-                .manualRegister("bitbucket", DOCKSTORE_TEST_USER2_DOCKSTORE_WORKFLOW, "/Dockstore.cwl", "altname", "cwl");
+                .manualRegister("bitbucket", DOCKSTORE_TEST_USER2_DOCKSTORE_WORKFLOW, "/Dockstore.cwl", "altname", "cwl","");
 
         // Assert some things
         final long count = testingPostgres
@@ -289,7 +289,7 @@ public class WorkflowIT {
         // Manually register workflow
         boolean success = true;
         try {
-            workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_HELLO_DOCKSTORE_WORKFLOW, "/Dockstore.wdl", "", "wdl");
+            workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_HELLO_DOCKSTORE_WORKFLOW, "/Dockstore.wdl", "", "wdl", "");
         } catch (ApiException c) {
             success = false;
         } finally {
@@ -298,7 +298,7 @@ public class WorkflowIT {
 
         success = true;
         try {
-            workflowApi.manualRegister("github", "dasn/iodnasiodnasio", "/Dockstore.wdl", "", "wdl");
+            workflowApi.manualRegister("github", "dasn/iodnasiodnasio", "/Dockstore.wdl", "", "wdl", "");
         } catch (ApiException c) {
             success = false;
         } finally {
@@ -311,7 +311,7 @@ public class WorkflowIT {
         final ApiClient webClient = getWebClient();
         WorkflowsApi workflowApi = new WorkflowsApi(webClient);
 
-        workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_IMPORTS_DOCKSTORE_WORKFLOW, "/Dockstore.cwl", "", "cwl");
+        workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_IMPORTS_DOCKSTORE_WORKFLOW, "/Dockstore.cwl", "", "cwl", "");
         final Workflow workflowByPathGithub = workflowApi.getWorkflowByPath(DOCKSTORE_TEST_USER2_IMPORTS_DOCKSTORE_WORKFLOW);
         final Workflow workflow = workflowApi.refresh(workflowByPathGithub.getId());
         // test out methods to access secondary files
@@ -331,7 +331,7 @@ public class WorkflowIT {
         final ApiClient webClient = getWebClient();
         WorkflowsApi workflowApi = new WorkflowsApi(webClient);
 
-        workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_RELATIVE_IMPORTS_WORKFLOW, "/workflow/cnv.cwl", "", "cwl");
+        workflowApi.manualRegister("github", DOCKSTORE_TEST_USER2_RELATIVE_IMPORTS_WORKFLOW, "/workflow/cnv.cwl", "", "cwl", "");
         final Workflow workflowByPathGithub = workflowApi.getWorkflowByPath(DOCKSTORE_TEST_USER2_RELATIVE_IMPORTS_WORKFLOW);
         final Workflow workflow = workflowApi.refresh(workflowByPathGithub.getId());
         // test out methods to access secondary files
