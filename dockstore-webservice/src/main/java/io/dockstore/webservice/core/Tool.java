@@ -94,12 +94,12 @@ public class Tool extends Entry<Tool, Tag> {
     private String defaultWdlPath = "/Dockstore.wdl";
 
     @Column(columnDefinition = "text")
-    @JsonProperty("default_cwl_test_parameter_file")
+    @JsonProperty("defaultCWLTestParameter_file")
     @ApiModelProperty(value = "This indicates for the associated git repository, the default path to the CWL test parameter file", required = true)
     private String defaultTestCwlParameterFile = "/test.json";
 
     @Column(columnDefinition = "text")
-    @JsonProperty("default_wdl_test_parameter_file")
+    @JsonProperty("defaultWDLTestParameter_file")
     @ApiModelProperty(value = "This indicates for the associated git repository, the default path to the WDL test parameter file", required = true)
     private String defaultTestWdlParameterFile = "/test.json";
 
