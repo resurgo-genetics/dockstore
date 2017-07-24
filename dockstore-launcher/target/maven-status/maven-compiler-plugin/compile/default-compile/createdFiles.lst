@@ -1,0 +1,10 @@
+io/dockstore/common/TabExpansionUtil.class
+io/dockstore/common/FileProvisionUtil$1.class
+io/dockstore/common/FileProvisioning$FileInfo.class
+io/dockstore/common/WDLFileProvisioning.class
+io/dockstore/common/FileProvisioning.class
+io/dockstore/common/FileProvisionUtil.class
+io/dockstore/common/FileProvisioning$FileProvisionUtilPluginWrapper.class
+io/dockstore/common/PluginJSON.class
+io/github/collaboratory/LauncherCWL.class
+io/dockstore/common/VersionAwarePluginManager.class

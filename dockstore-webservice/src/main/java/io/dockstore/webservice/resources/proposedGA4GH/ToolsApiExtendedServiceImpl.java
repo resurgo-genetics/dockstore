@@ -177,11 +177,16 @@ public class ToolsApiExtendedServiceImpl extends ToolsExtendedApiService {
                     e.printStackTrace();
                 }
 
-                URL url = Resources.getResource("queries/mapping.json");
+                URL url = Resources.getResource("queries/mapping_tool.json");
                 String text = Resources.toString(url, StandardCharsets.UTF_8);
-
                 HttpEntity mappingEntity = new NStringEntity(text, ContentType.APPLICATION_JSON);
-                restClient.performRequest("PUT", "/entry", Collections.emptyMap(), mappingEntity);
+                org.elasticsearch.client.Response put = restClient.performRequest("PUT", "/entry", Collections.emptyMap(), mappingEntity);
+
+//                URL url2 = Resources.getResource("queries/mapping_workflow.json");
+//                String text2 = Resources.toString(url2, StandardCharsets.UTF_8);
+//                HttpEntity mappingEntity2 = new NStringEntity(text2, ContentType.APPLICATION_JSON);
+//                restClient.performRequest("PUT", "/entry/_mapping/workflow", Collections.emptyMap(), mappingEntity2);
+
 
                 HttpEntity bulkEntity = new NStringEntity(builder.toString(), ContentType.APPLICATION_JSON);
                 org.elasticsearch.client.Response post = restClient.performRequest("POST", "/entry/_bulk", Collections.emptyMap(), bulkEntity);
@@ -209,6 +214,7 @@ public class ToolsApiExtendedServiceImpl extends ToolsExtendedApiService {
                 // but it looks like the elastic search http client classes don't handle it
                 queryParameters.forEach((key, value) -> parameters.put(key, value.get(0)));
                 org.elasticsearch.client.Response get = restClient.performRequest("GET", "/entry/_search", parameters, entity);
+                System.out.println("GETT: " + get);
                 if (get.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
                     throw new CustomWebApplicationException("Could not submit index to elastic search",
                             HttpStatus.SC_INTERNAL_SERVER_ERROR);

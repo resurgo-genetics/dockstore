@@ -1,0 +1,52 @@
+{
+      "properties" : {
+        "author" : {
+          "type" : "string",
+          "index": "not_analyzed"
+        },
+        "defaultVersion" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "descriptorType" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "gitUrl" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "long"
+        },
+        "is_published" : {
+          "type" : "boolean"
+        },
+        "lastUpdated": {
+          "format": "epoch_millis",
+          "type": "date"
+        },
+        "mode" : {
+          "type" : "string"
+        },
+        "organization" : {
+          "type" : "string"
+        },
+        "path" : {
+          "type" : "string"
+        },
+        "repository" : {
+          "type" : "string"
+        },
+        "workflowName" : {
+          "type" : "string"
+        },
+        "workflow_path" : {
+          "type" : "string"
+        }
+      }
+
+}

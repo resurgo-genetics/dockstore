@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="7.3">
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/PluginJSON.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/WDLFileProvisioning.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/package-info.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/TabExpansionUtil.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/FileProvisioning.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/FileProvisionUtil.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/dockstore/common/VersionAwarePluginManager.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/github/collaboratory/package-info.java">
+</file>
+<file name="/home/j2wu/dockstore/dockstore-launcher/src/main/java/io/github/collaboratory/LauncherCWL.java">
+</file>
+</checkstyle>

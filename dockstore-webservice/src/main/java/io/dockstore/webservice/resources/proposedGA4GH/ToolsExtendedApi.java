@@ -20,6 +20,8 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.api.NotFoundException;
 import io.swagger.model.Tool;
 import org.apache.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * GET methods for organization related information on path: /api/ga4gh/v1/tools
@@ -28,6 +30,7 @@ import org.apache.http.HttpStatus;
 @Api("GA4GH")
 @Produces({ "application/json", "text/plain" })
 public class ToolsExtendedApi {
+    private static final Logger LOG = LoggerFactory.getLogger(ToolsExtendedApi.class);
     private final ToolsExtendedApiService delegate = ToolsApiExtendedServiceFactory.getToolsExtendedApi();
 
     @GET
@@ -51,6 +54,9 @@ public class ToolsExtendedApi {
     @ApiOperation(value = "Search the index of tools", notes = "This endpoint searches the index for all published tools and workflows. Used by utilities that expect to talk to an elastic search endpoint", tags = { "GA4GH", }, response = String.class)
     @ApiResponses(value = { @ApiResponse(code = HttpStatus.SC_OK, message = "An elastic search result.", response = String.class) })
     public Response toolsIndexSearch(@ApiParam(value = "elastic search query", required = true) String query, @Context UriInfo uriInfo, @Context SecurityContext securityContext) throws NotFoundException {
+//        LOG.info(delegate.toolsIndexSearch(query, uriInfo.getQueryParameters(), securityContext));
+        System.out.println("Something happened!!!!!!!!: " + delegate.toolsIndexSearch(query, uriInfo.getQueryParameters(), securityContext));
+        LOG.error("Something happened");
         return delegate.toolsIndexSearch(query, uriInfo.getQueryParameters(), securityContext);
     }
 

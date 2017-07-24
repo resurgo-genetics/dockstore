@@ -1,30 +1,22 @@
 template: Hello, %s!
-quayClientID: HVOYCL8Y0JMZ06EV0LX2
+quayClientID: <fill me in>
 # port should match the port where the UI is being hosted, 9000 by default
-quayRedirectURI: http://10.11.9.73:4200/accounts
-githubClientID: 
- - 4e52429e7506af0a634c
- - 9bddc5a5d207da99d18d
-githubClientSecret: 
- - 3778716b18352ae55012a5f18a926fd45e63af8d
- - 73a2cbb31ca611ac0a6298e6a9f8ddbe1a1501af
+quayRedirectURI: http://<fill me in>:9000/accounts
+githubClientID: <fill me in>
+githubClientSecret: <fill me in>
 # port should match the port where the UI is being hosted, 9000 by default
-githubRedirectURI: http://10.11.9.73:4200/
+githubRedirectURI: http://<fill me in>:9000/login
 bitbucketClientID: <fill me in>
 bitbucketClientSecret:  <fill me in>
-
-gitlabClientID: <fill me in>
-gitlabClientSecret: <fill me in>
-gitlabRedirectURI: <fill me in>
-
-
-        
 # the following values describe where the webservice is being run (and on what port and using what scheme) to configure swagger
-hostname: 10.11.9.73
+hostname: localhost
 scheme: http
 port: 8080
 
 authenticationCachePolicy: maximumSize=10000, expireAfterAccess=10m
+gitlabClientID: <fill me in>
+gitlabClientSecret: <fill me in>
+gitlabRedirectURI: <fill me in>
 
 httpClient:
   timeout: 5500ms
@@ -35,10 +27,6 @@ httpClient:
   maxConnectionsPerRoute: 1024
   keepAlive: 0ms
   retries: 0
-
-esconfiguration:
-  port: 9200
-  hostname: localhost
 
 database:
   # the name of your JDBC driver
