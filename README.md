@@ -59,6 +59,14 @@ This keeps track of breaking changes when migrating from Dockstore 1.1 to beta r
 2. A new version of cwltool 
 3. The syntax for launching tools has been simplified. `--local-entry` is no longer a flag, but is an alternative to `--entry`.
 
+### Migration to Dockstore 1.2.5
+
+Unfortunately, new unique indexes enforcing better data consistency require a clean-up of unpublished workflows. Published content should remain unaffected. 
+```
+delete from workflow_workflowversion ww where ww.workflowid in (select id from workflow where ispublished='f');
+delete from workflow where ispublished='f';
+```
+
 ### File Provisioning
 
 The following pertains to Dockstore 1.2+ and is currently a BETA feature.
@@ -232,7 +240,7 @@ This is for pre-release versions that have not been released to production.
 
 Special note: If a test is failing during perform, but did not fail during prepare or Travis-CI builds, you may have a non-deterministic error. Skip tests during a release with `mvn release:perform -Darguments="-DskipTests"`
 
-After the release to Artifactory, document the release on GitHub via the Releases page. Take a look at commits since the last release and closed pull requests for information on what goes into the changelog. Also attach the newly created Dockstore script.
+After the release to Artifactory, document the release on GitHub via the Releases page. Take a look at commits since the last release and closed pull requests for information on what goes into the changelog. Also attach the newly created Dockstore script and shaded client jar.
 
 #### How to perform a Maven release for an Stable Release
 
@@ -243,6 +251,7 @@ This is for release versions that have been released to production.
 3. Prepare the release and the perform it (you may need permissions) `mvn release:prepare` and `mvn release:perform`
 3. Merge to master and develop `mvn hf hotfix finish`
 
+As with the unstable release, document the release and attach the new Dockstore script and shaded client jar. 
 
 ### Encrypted Documents for Travis-CI
 
